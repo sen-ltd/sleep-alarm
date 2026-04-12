@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>睡眠サイクル計算機 — Sleep Cycle Calculator</title>
+  <meta name="description" content="90分の睡眠サイクルに基づいた最適な就寝・起床時刻を提案。Sleep cycle calculator for optimal bedtimes and wake-up times." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="container">
+
+      <!-- Header -->
+      <header class="header">
+        <div class="header-top">
+          <button class="lang-toggle" id="lang-toggle">EN</button>
+        </div>
+        <span class="moon-icon" aria-hidden="true">🌙</span>
+        <h1 class="app-title">睡眠サイクル計算機</h1>
+        <p class="app-subtitle">90分サイクルで最適な睡眠時間を計算</p>
+      </header>
+
+      <!-- Calculator card -->
+      <div class="card">
+
+        <!-- Mode tabs -->
+        <div class="tabs" role="tablist">
+          <button class="tab-btn active" id="tab-wakeup" role="tab" aria-selected="true" aria-controls="panel-wakeup">
+            起床時刻から逆算
+          </button>
+          <button class="tab-btn" id="tab-bedtime" role="tab" aria-selected="false" aria-controls="panel-bedtime">
+            就寝時刻から計算
+          </button>
+        </div>
+
+        <!-- Panel: Wake-up mode -->
+        <div class="panel" id="panel-wakeup" role="tabpanel" aria-labelledby="tab-wakeup">
+          <div class="field">
+            <label for="input-wake-time">起床したい時刻</label>
+            <input type="time" id="input-wake-time" value="07:00" />
+          </div>
+        </div>
+
+        <!-- Panel: Bedtime mode -->
+        <div class="panel hidden" id="panel-bedtime" role="tabpanel" aria-labelledby="tab-bedtime">
+          <div class="field">
+            <label for="input-bed-time">就寝する時刻</label>
+            <div class="time-row">
+              <input type="time" id="input-bed-time" value="23:00" />
+              <button class="btn-now" id="btn-bed-now">今すぐ寝る</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fall-asleep slider (shared) -->
+        <div class="field">
+          <label for="fall-asleep-slider">入眠にかかる時間</label>
+          <div class="slider-row">
+            <input type="range" id="fall-asleep-slider" min="0" max="30" step="1" value="15" />
+            <span class="slider-value" id="fall-asleep-value">15分</span>
+          </div>
+        </div>
+
+        <!-- Calculate button -->
+        <button class="btn-calculate" id="btn-calculate">計算する</button>
+      </div>
+
+      <!-- Results -->
+      <section class="results-section hidden" id="results" aria-live="polite">
+        <p class="results-title" id="results-title"></p>
+
+        <div class="results-list" id="results-list"></div>
+
+        <!-- Legend -->
+        <div class="legend-row" aria-label="Sleep phase legend">
+          <span class="legend-item">
+            <span class="legend-dot light"></span>
+            <span data-legend="phaseLight">浅い眠り</span>
+          </span>
+          <span class="legend-item">
+            <span class="legend-dot deep"></span>
+            <span data-legend="phaseDeep">深い眠り</span>
+          </span>
+          <span class="legend-item">
+            <span class="legend-dot rem"></span>
+            <span data-legend="phaseREM">REM</span>
+          </span>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p class="footer-text">
+          90分の睡眠サイクルに基づいた計算です。入眠時間を差し引いて最適な就寝・起床時刻を提案します。
+        </p>
+      </footer>
+
+    </div>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

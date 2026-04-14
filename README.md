@@ -29,3 +29,10 @@ npm test
 
 ## ライセンス
 MIT. See [LICENSE](./LICENSE).
+
+<!-- sen-publish:links -->
+## Links
+
+- 🌐 Demo: https://sen.ltd/portfolio/sleep-alarm/
+- 📝 dev.to: https://dev.to/sendotltd/a-sleep-cycle-calculator-that-accounts-for-fall-asleep-time-1llj
+<!-- /sen-publish:links -->
